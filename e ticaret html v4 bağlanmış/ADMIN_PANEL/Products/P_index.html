@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>Admin Products</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+
+  </head>
+  <body>
+    <div class="grid-container">
+
+        <!-- Header -->
+        <header class="header">
+          <div class="menu-icon" onclick="openSidebar()">
+            <span class="material-icons-outlined">menu</span>
+          </div>
+          <div></div>
+          <div class="header-right">
+            <span class="material-icons-outlined">notifications</span>
+            <span class="material-icons-outlined">email</span>
+            <span class="material-icons-outlined">account_circle</span>
+          </div>
+        </header>
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <span class="material-icons-outlined">shopping_cart</span> AAmazinGo
+          </div>
+          <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+        </div>
+
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="../index.html">
+              <span class="material-icons-outlined">dashboard</span> Dashboard
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#">
+              <span class="material-icons-outlined">inventory_2</span> Products
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="../../ADMIN_LOGIN/loginADMIN.html">
+              EXIT
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <!-- End Sidebar -->
+
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-title">
+          <h2>PRODUCTS</h2>
+        </div>
+
+        <table>
+          <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Actions</th>
+          </tr>
+          <tbody id="product-table-body">
+          </tbody>
+        </table>
+        <a href="Add.html" style="color:aqua;">Add Product</a>
+
+      </main>
+      <!-- End Main -->
+
+      <script src="../SIDE_TOGGLE.js"></script>
+      <script src="../scripts.js"></script>
+    </div>
+
+  </body>
+</html>

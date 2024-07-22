@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: url(bg_n.jpg) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: Arial;
+  margin: 10px;
+  color: whitesmoke;
+}
+
+button {
+  background: #b33733;
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width:  100%;
+  border: 2px solid gray;
+}
+
+a {
+  color: white;
+}
+
+.topnav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav li {
+  float: left;
+  border-right: 2px solid transparent;
+}
+
+.topnav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+}
+
+.topnav li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.topnav .active {
+  background-color: #04AA6D;
+}
+
+.topnav .loginButon {
+  float: right;
+  border-right: none;
+  border-radius: 30px;
+  background: #73AD21;
+}
+
+.topnav .loginButon a:hover:not(.active) {
+  background-color: rgb(110, 59, 213);
+  color: #fff;
+  border-radius: 10px;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 6px 3px rgb(0 0 0 / 50%);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.card h2 {
+  margin: 10px auto;
+  font-size: 32px; /* Larger font size */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 20px; /* Larger font size */
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px; /* Larger padding */
+  font-size: 18px; /* Larger font size */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 10px; /* Space between buttons */
+}
+
+button {
+  padding: 15px 30px; /* Larger padding */
+  font-size: 18px; /* Larger font size */
+}
+
+.table1 {
+  background-color: white;
+  width: 100%;
+  border: 1px solid;
+  color: black;
+}
+
+.table1 thead {
+  background: #e9e9e9;
+}
+
+.table1 tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer {
+  padding: 10px 0px; /* Increased padding */
+  text-align: center;
+  background: rgb(255 255 255 / 60%);
+  margin-top: 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.footer a {
+  color: black;
+}
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav li {
+    text-align: center;
+    float: none;
+    width: 100%;
+  }
+}

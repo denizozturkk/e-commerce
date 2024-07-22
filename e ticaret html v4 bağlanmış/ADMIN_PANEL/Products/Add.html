@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Product</title>
+    <style>
+        body {
+            background-color: #1d2634;
+            color: white;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+        label, button, a {
+            display: block;
+            margin: 10px 0;
+        }
+        input {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Product</h1>
+    <form id="add-product-form">
+        <label>Name: <input type="text" id="product-name" name="name" required /></label>
+        <br>
+        <label>Description: <input type="text" id="product-description" name="description" required /></label>
+        <br>
+        <label>Price: <input type="number" id="product-price" name="price" step="0.01" required /></label>
+        <br>
+        <label>Quantity: <input type="number" id="product-quantity" name="quantity" required /></label>
+        <br>
+        <label>Image: <input type="file" id="product-image" name="image"  /></label>
+        <br>
+        <button type="submit">Add</button>
+    </form>
+    <a href="P_index.html" style="color: red;">Back to List</a>
+
+    <script src="../scripts.js"></script>
+</body>
+</html>
