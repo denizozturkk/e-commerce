@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Kutay Aydemir">
+        <title>Login AAmazingo</title>
+        <link rel="icon" href="../Genel_kücük_resim.png" type="image/x-icon">
+        <link rel="stylesheet" href="../Ortak_login_css/login.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        <style>
+            body {
+                background: url('loginbg.jpg') no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <form id="loginForm">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="text" id="username" placeholder="Username" required> <!-- required: gerekli -->
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="password" placeholder="Password" >
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+
+                <div class="remember-forgot">
+                    <label><input type="checkbox" id="rememberMe">Remember me</label>
+                    <!-- <a href="#">Forgot password?</a> -->
+                </div>
+
+                <button type="submit" class="btn" >Login</button>
+                <button type="button" id="registerBtn" class="btn" style="margin-top: 10px; background-color: orange;">Register</button>
+                <button type="button" id="adminLoginBtn" class="btn" style="margin-top: 10px; background-color: red; color: white;">To ADMİN Login</button>
+                
+                <script>
+                    document.getElementById('registerBtn').addEventListener('click', function() {
+                        window.location.href = "../CL_REGISTER/register.html";
+                    });
+                
+                    document.getElementById('adminLoginBtn').addEventListener('click', function() {
+                        window.location.href = '../ADMIN_LOGIN/loginADMIN.html';
+                    });
+                </script>
+
+                <p class="uyari" id="errorMessage">Incorrect username or password</p>
+
+            </form>
+        </div>
+
+        <script src="login.js"></script>
+
+    </body>
+
+</html>

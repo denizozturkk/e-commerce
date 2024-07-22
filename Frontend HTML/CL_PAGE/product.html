@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .user-balance {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border: 1px solid black;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: 1px solid black;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .product-img {
+            max-width: 50%;
+            text-align: center;
+        }
+        .product-img img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-details {
+            max-width: 45%;
+        }
+        .product-details h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .product-details p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .form-group {
+            margin: 20px 0;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 60px;
+            padding: 8px;
+            margin-right: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #ff6200;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group button:hover {
+            background-color: #e55d00;
+        }
+        .description {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-button" onclick="window.history.back()">Back</div>
+    <div class="user-balance">
+        User Money: 100 TL
+    </div>
+    <div class="container" style="margin-top: 100px;">
+        <div class="product-img" id="product-img">
+            <img src="" alt="Product Image">
+        </div>
+        <div class="product-details" id="product-details">
+            <h1 id="product-name">Product Name</h1>
+            <p><strong>Price: <span id="product-price">0</span> TL</strong></p>
+            <p>Total Price: (<span id="product-price-total">0</span> * ADET)</p>
+            <div class="form-group">
+                <label for="quantity">Adet:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1">
+                <button type="button" onclick="addToCart()">SELL</button>
+            </div>
+            <div class="description" id="product-description">
+                <p><strong>Açıklama</strong></p>
+                <p>satır1</p>
+                <p>satır2</p>
+                <p>satır3</p>
+                <p>satır4</p>
+                <p>satır5</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('productId');
+            loadProductDetails(productId);
+        });
+
+        function loadProductDetails(productId) {
+            const token = localStorage.getItem('clientToken');  // Client token kullanılıyor
+            fetch(`http://localhost:8080/api/v1/product/get/${productId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token  // Client token kullanılıyor
+                }
+            })
+            .then(response => response.json())
+            .then(product => {
+                document.getElementById('product-name').textContent = product.name;
+                document.getElementById('product-price').textContent = product.price;
+                document.getElementById('product-price-total').textContent = product.price;
+                document.getElementById('product-img').querySelector('img').src = `data:${product.imageType};base64,${product.imageData}`;
+                document.getElementById('product-description').innerHTML = `
+                    <p><strong>Açıklama</strong></p>
+                    <p>${product.description}</p>
+                `;
+            })
+            .catch(error => console.error('Error loading product details:', error));
+        }
+
+        function addToCart() {
+            const quantity = document.getElementById('quantity').value;
+            alert(`You have sold ${quantity} item(s)`);
+        }
+    </script>
+</body>
+</html>
